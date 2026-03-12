@@ -51,10 +51,20 @@ document
     if (clickedElement.classList.contains("interview")) {
       status.textContent = "Interviewed";
       interviewContainer.appendChild(card);
+      updateStat();
     } else if (clickedElement.classList.contains("reject")) {
       status.textContent = "Rejected";
       rejectContainer.appendChild(card);
+      updateStat();
     } else if (clickedElement.classList.contains("delete")) {
       parent.removeChild(card);
+      updateStat();
     }
   });
+
+function updateStat() {
+  totalStat.innerText = allContainer.children.length;
+  interviewStat.innerText = interviewContainer.children.length;
+  rejectedStat.innerText = rejectContainer.children.length;
+}
+updateStat();
