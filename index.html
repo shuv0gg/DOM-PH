@@ -90,14 +90,14 @@
             All
           </button>
           <button
-          id="tab-interview"
+            id="tab-interview"
             onclick="switchTab('interview')"
             class="px-5 py-1.5 rounded-full border-2 text-sm font-medium cursor-pointer transition-all duration-200"
           >
             Interview
           </button>
           <button
-          id="tab-rejected"
+            id="tab-rejected"
             onclick="switchTab('rejected')"
             class="px-5 py-1.5 rounded-full border-2 text-sm font-medium cursor-pointer transition-all duration-200"
           >
@@ -106,7 +106,7 @@
         </div>
 
         <!-- Job Cards -->
-        <div class="flex flex-col gap-4">
+        <div id="all-container" class="flex flex-col gap-4">
           <section class="flex flex-col gap-2">
             <div
               class="card bg-white rounded-2xl border-2 border-slate-100 px-6 py-5 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 animate-fadeUp"
@@ -207,16 +207,17 @@
               </div>
             </div>
           </section>
-          <section
-            class="flex flex-col gap-2"
-            id="interview-container"
-          ></section>
-          <section class="flex flex-col gap-2" id="reject-container"></section>
+          <section class="hidden flex flex-col gap-2" id="interview-container">
+            Interview Section
+          </section>
+          <section class="hidden flex flex-col gap-2" id="reject-container">
+            Rejected Section
+          </section>
         </div>
 
         <!-- Empty State -->
         <div
-          class="flex-col items-center justify-center py-20 gap-4 text-center"
+          class="hidden flex-col items-center justify-center py-20 gap-4 text-center"
         >
           <div class="text-7xl opacity-20">📄</div>
           <p class="font-syne text-lg font-bold text-navy">No jobs available</p>

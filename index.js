@@ -6,8 +6,11 @@ const tabInactive = [
   "border-state-200",
   "text-black",
 ];
+const allContainer = document.getElementById("all-container");
+const interviewContainer = document.getElementById("interview-container");
+const rejectContainer = document.getElementById("reject-container");
+console.log(allContainer, interviewContainer, rejectContainer);
 function switchTab(tab) {
-  console.log(tab);
   const tabs = ["all", "interview", "rejected"];
 
   for (const t of tabs) {
@@ -21,3 +24,4 @@ function switchTab(tab) {
     }
   }
 }
+switchTab(currentTab);
