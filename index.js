@@ -84,6 +84,12 @@ function updateStat() {
   totalStat.innerText = counts["all"];
   interviewStat.innerText = counts["interview"];
   rejectedStat.innerText = counts["rejected"];
+
   availableStat.innerText = counts[currentTab];
+  if (counts[currentTab] === 0) {
+    emptyState.classList.remove("hidden");
+  } else {
+    emptyState.classList.add("hidden");
+  }
 }
 updateStat();
