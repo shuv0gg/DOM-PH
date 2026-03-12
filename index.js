@@ -9,7 +9,7 @@ const tabInactive = [
 const allContainer = document.getElementById("all-container");
 const interviewContainer = document.getElementById("interview-container");
 const rejectContainer = document.getElementById("reject-container");
-console.log(allContainer, interviewContainer, rejectContainer);
+
 function switchTab(tab) {
   const tabs = ["all", "interview", "rejected"];
 
@@ -23,5 +23,37 @@ function switchTab(tab) {
       tabName.classList.add(...tabInactive);
     }
   }
+  const pages = [allContainer, interviewContainer, rejectContainer];
+  for (const page of pages) {
+    page.classList.add("hidden");
+    if (tab === "all") {
+      allContainer.classList.remove("hidden");
+    } else if (tab === "interview") {
+      interviewContainer.classList.remove("hidden");
+    } else if (tab === "rejected") {
+      rejectContainer.classList.remove("hidden");
+    }
+  }
 }
+const totalStat = document.getElementById("stat-total");
+const interviewStat = document.getElementById("stat-interview");
+const rejectedStat = document.getElementById("stat-rejected");
+
 switchTab(currentTab);
+
+document
+  .getElementById("jobs-container")
+  .addEventListener("click", function (event) {
+    const clickedElement = event.target;
+    console.log(clickedElement.parentNode.parentNode.parentNode.parentNode);
+    if (clickedElement.classList.contains("interview")) {
+      // Handle interview button click
+      console.log("Interview button clicked");
+    } else if (clickedElement.classList.contains("reject")) {
+      // Handle reject button click
+      console.log("Reject button clicked");
+    } else if (clickedElement.classList.contains("delete")) {
+      // Handle delete button click
+      console.log("Delete button clicked");
+    }
+  });
