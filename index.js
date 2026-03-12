@@ -45,15 +45,16 @@ document
   .getElementById("jobs-container")
   .addEventListener("click", function (event) {
     const clickedElement = event.target;
-    console.log(clickedElement.parentNode.parentNode.parentNode.parentNode);
+    const card = clickedElement.closest(".card");
+    const parent = card.parentNode;
+    const status = card.querySelector(".status");
     if (clickedElement.classList.contains("interview")) {
-      // Handle interview button click
-      console.log("Interview button clicked");
+      status.textContent = "Interviewed";
+      interviewContainer.appendChild(card);
     } else if (clickedElement.classList.contains("reject")) {
-      // Handle reject button click
-      console.log("Reject button clicked");
+      status.textContent = "Rejected";
+      rejectContainer.appendChild(card);
     } else if (clickedElement.classList.contains("delete")) {
-      // Handle delete button click
-      console.log("Delete button clicked");
+      parent.removeChild(card);
     }
   });
